@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Smart Surveillance - Dashboard</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav glass-panel">
+        <div class="nav-brand">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h2>SmartSurveil <span>AI</span></h2>
+        </div>
+        <div class="nav-stats">
+            <div class="stat-item glow-box">
+                <i class="fa-solid fa-video"></i>
+                <div>
+                    <span class="stat-label">ACTIVE CAMERAS</span>
+                    <strong id="activeCams">4 / 4</strong>
+                </div>
+            </div>
+            <div class="stat-item glow-box">
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                    <span class="stat-label">SYSTEM UPTIME</span>
+                    <strong id="uptimeClock">00:00:00</strong>
+                </div>
+            </div>
+            <div class="stat-item glow-box critical">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <span class="stat-label">CRITICAL ALERTS</span>
+                    <strong id="totalAlerts">0</strong>
+                </div>
+            </div>
+        </div>
+        <div class="nav-user">
+            <div class="user-info">
+                <i class="fa-solid fa-user-shield"></i>
+                <span id="officerName">Officer</span>
+            </div>
+            <button class="btn-icon" onclick="logout()" title="Secure Logout">
+                <i class="fa-solid fa-power-off"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Grid -->
+    <main class="dashboard-grid">
+
+        <!-- Left Column (Cameras + Logs) -->
+        <div style="display: flex; flex-direction: column; gap: 15px; flex: 1; min-height: 0; overflow-y: auto; padding-right: 5px;"
+            class="left-column-wrapper">
+
+            <!-- Top Left: Camera Grid -->
+            <section class="camera-section" style="flex: 2;">
+
+                <!-- CAM 1: Live Webcam -->
+                <div class="camera-container glass-panel" id="cam1_container">
+                    <div class="cam-header">
+                        <span><i class="fa-solid fa-circle-dot recording-dot"></i> CAM 1: MAIN ENTRANCE (LIVE)</span>
+                        <span class="crowd-count"><i class="fa-solid fa-users"></i> Counting: <span
+                                id="cam1_crowd">0</span></span>
+                    </div>
+                    <!-- Actual video feed -->
+                    <video id="cam1_feed" autoplay playsinline muted></video>
+                    <!-- Overlays -->
+                    <div class="ai-scan-overlay"></div>
+                    <div class="detection-label" id="cam1_alert"></div>
+                    <div class="target-box" id="cam1_target"></div>
+                </div>
+
+                <!-- CAM 2: Sample Video -->
+                <div class="camera-container glass-panel" id="cam2_container">
+                    <div class="cam-header">
+                        <span><i class="fa-solid fa-circle-dot recording-dot"></i> CAM 2: SECTOR B (NORTH)</span>
+                        <span class="crowd-count"><i class="fa-solid fa-users"></i> Counting: <span
+                                id="cam2_crowd">0</span></span>
+                    </div>
+                    <video id="cam2_feed"
+                        src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" loop autoplay
+                        muted playsinline></video>
+                    <div class="ai-scan-overlay"></div>
+                    <div class="detection-label" id="cam2_alert"></div>
+                    <div class="target-box" id="cam2_target"></div>
+                </div>
+
+                <!-- CAM 3: Sample Video -->
+                <div class="camera-container glass-panel" id="cam3_container">
+                    <div class="cam-header">
+                        <span><i class="fa-solid fa-circle-dot recording-dot"></i> CAM 3: PARKING LOT</span>
+                        <span class="crowd-count"><i class="fa-solid fa-users"></i> Counting: <span
+                                id="cam3_crowd">0</span></span>
+                    </div>
+                    <video id="cam3_feed"
+                        src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" loop
+                        autoplay muted playsinline></video>
+                    <div class="ai-scan-overlay"></div>
+                    <div class="detection-label" id="cam3_alert"></div>
+                    <div class="target-box" id="cam3_target"></div>
+                </div>
+
+                <!-- CAM 4: Sample Video -->
+                <div class="camera-container glass-panel" id="cam4_container">
+                    <div class="cam-header">
+                        <span><i class="fa-solid fa-circle-dot recording-dot"></i> CAM 4: WAREHOUSE</span>
+                        <span class="crowd-count"><i class="fa-solid fa-users"></i> Counting: <span
+                                id="cam4_crowd">0</span></span>
+                    </div>
+                    <video id="cam4_feed"
+                        src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" loop
+                        autoplay muted playsinline></video>
+                    <div class="ai-scan-overlay"></div>
+                    <div class="detection-label" id="cam4_alert"></div>
+                    <div class="target-box" id="cam4_target"></div>
+                </div>
+
+            </section>
+
+            <!-- Left Bottom: Real-Time Event Logs -->
+            <section class="logs-panel glass-panel">
+                <div class="logs-header">
+                    <h3><i class="fa-solid fa-list-ol"></i> REAL-TIME SECURITY LOGS</h3>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <span class="live-indicator"><i class="fa-solid fa-satellite-dish"></i> SYNCING</span>
+                        <button class="btn-action" onclick="clearLogs()"
+                            style="border-color: rgba(255,51,102,0.5); color: var(--accent-red); padding: 5px 10px; font-size: 0.8rem; flex: none;">
+                            <i class="fa-solid fa-trash"></i> Clear Logs
+                        </button>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="logs-table">
+                        <thead>
+                            <tr>
+                                <th>TIME</th>
+                                <th>EVENT TYPE</th>
+                                <th>LOCATION</th>
+                                <th>SEVERITY</th>
+                                <th>ACTION / EVIDENCE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logsTableBody">
+                            <!-- Logs inserted here by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div><!-- Left Column Wrapper -->
+
+        <!-- Right: Control Panel -->
+        <section class="control-panel">
+
+            <!-- Mode Switch -->
+            <div class="control-card glass-panel">
+                <h3>SYSTEM MODE</h3>
+                <div class="toggle-container">
+                    <span class="toggle-label" id="label-manual">MANUAL</span>
+                    <label class="switch">
+                        <input type="checkbox" id="aiModeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="toggle-label" id="label-auto">AUTO AI</span>
+                </div>
+                <p class="mode-desc" id="modeDesc">Manual trigger via controls below.</p>
+            </div>
+
+            <!-- Event Simulation System -->
+            <div class="control-card glass-panel">
+                <h3>THREAT SIMULATION</h3>
+                <div class="sim-buttons">
+                    <button class="btn-sim sim-fire" onclick="triggerEvent('FIRE', 2)">
+                        <i class="fa-solid fa-fire"></i> Fire Detected
+                    </button>
+                    <button class="btn-sim sim-crowd" onclick="triggerEvent('OVERCROWDING', 1)">
+                        <i class="fa-solid fa-people-group"></i> Overcrowding
+                    </button>
+                    <button class="btn-sim sim-intrude" onclick="triggerEvent('INTRUSION', 3)">
+                        <i class="fa-solid fa-person-walking-arrow-right"></i> Intrusion
+                    </button>
+                    <button class="btn-sim sim-suspect" onclick="triggerEvent('SUSPICIOUS_ACTIVITY', 4)">
+                        <i class="fa-solid fa-user-secret"></i> Suspicious Act
+                    </button>
+                </div>
+            </div>
+
+            <!-- Intelligent Alert Routing -->
+            <div class="control-card glass-panel routing-panel">
+                <h3>SMART ROUTING</h3>
+                <div class="route-nodes">
+                    <div class="node" id="node-system">
+                        <i class="fa-solid fa-server"></i>
+                        <span>AI CORE</span>
+                    </div>
+                    <div class="route-lines"></div>
+                    <div class="destinations">
+                        <div class="dest glass-panel" id="dest-security">
+                            <i class="fa-solid fa-shield"></i> Security
+                        </div>
+                        <div class="dest glass-panel" id="dest-police">
+                            <i class="fa-solid fa-building-shield"></i> Police
+                        </div>
+                        <div class="dest glass-panel" id="dest-medical">
+                            <i class="fa-solid fa-truck-medical"></i> Fire/Medical
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="system-actions">
+                <button class="btn-action" onclick="clearAlerts()"><i class="fa-solid fa-eye-slash"></i> Dismiss
+                    Visuals</button>
+                <button class="btn-action btn-danger" onclick="resetDashboard()"><i
+                        class="fa-solid fa-rotate-right"></i> Reset System</button>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- Floating Elements -->
+
+    <!-- Emergency Helpline Button -->
+    <button id="emergencyBtn" class="floating-btn emergency-btn" onclick="triggerEmergency()">
+        <i class="fa-solid fa-phone-volume"></i>
+        <span>S.O.S</span>
+    </button>
+
+    <!-- AI Chatbot Button & Panel -->
+    <div class="chatbot-container">
+        <div id="chatPanel" class="chat-panel glass-panel hidden">
+            <div class="chat-header">
+                <div>
+                    <i class="fa-solid fa-robot"></i> System Assistant
+                </div>
+                <button onclick="toggleChat()" class="btn-icon"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="msg ai">
+                    <p>Hello Officer. I am the AI core. How can I assist you with the surveillance parameters today?</p>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Ask about AI, features, or help...">
+                <button onclick="sendChatMessage()" class="btn-icon"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button id="chatBtn" class="floating-btn chat-btn glow" onclick="toggleChat()">
+            <i class="fa-solid fa-message"></i>
+        </button>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="alertSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
+    <audio id="sirenSound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
+    <audio id="sosSound" src="https://actions.google.com/sounds/v1/alarms/phone_ring.ogg"></audio>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/event-system.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        // Check auth immediately on load
+        const currentUser = requireAuth();
+        if (currentUser) {
+            document.getElementById('officerName').textContent = currentUser;
+        }
+    </script>
+</body>
+
+</html>

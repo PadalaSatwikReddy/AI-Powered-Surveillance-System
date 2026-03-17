@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Smart Surveillance - Login</title>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="login-body">
+    <!-- Animated Background -->
+    <div class="background-grid"></div>
+    <div class="radar">
+        <div class="radar-beam"></div>
+    </div>
+    <div class="particles"></div>
+
+    <div class="login-container glass-panel glow">
+        <div class="login-header">
+            <i class="fa-solid fa-shield-halved fa-3x" style="color: var(--accent-blue);"></i>
+            <h1>SmartSurveil <span>AI</span></h1>
+            <p>Advanced Proactive Security System</p>
+        </div>
+
+        <form id="loginForm" class="login-form">
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="username" placeholder="Officer Username" required autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="Passcode" required>
+            </div>
+
+            <div id="loginError" class="error-msg"></div>
+
+            <button type="submit" class="btn-glow">
+                <span>INITIALIZE SYSTEM</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <p>Status: <span class="status-online">System Online</span></p>
+            <p class="small-text">Authorized Personnel Only</p>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <!-- Auth Logic -->
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
