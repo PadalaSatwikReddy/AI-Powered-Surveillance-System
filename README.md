@@ -23,7 +23,7 @@ https://github.com/PadalaSatwikReddy/AI-Powered-Surveillance-System
 ## Screenshots
 <img width="3000" height="2121" alt="SQUID_GAME_2_Certificate_PADALA_SAI_VEER_SATWIK_REDDY" src="https://github.com/user-attachments/assets/f62b361d-5c87-436b-9e73-f529d0e0c732" />
 <img width="1919" height="972" alt="image" src="https://github.com/user-attachments/assets/c5bdfbb0-8fb1-4aae-825e-658a1fc69b4f" />
-## 👥 Team
+## 👥 Team:
 Team of 4 members
 
 ## ⚠️ Note
