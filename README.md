@@ -1,5 +1,7 @@
 # AI Surveillance System (Hackathon Project)
 
+🚀 Built during GDG Hackathon | Top 10 Project
+
 ## 🚀 Overview
 Built an AI-powered surveillance prototype for hospital security and threat detection.
 
