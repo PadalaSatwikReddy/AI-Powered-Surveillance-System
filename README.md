@@ -15,13 +15,10 @@ Integrate AI with CCTV cameras to detect threats and improve monitoring.
 - Web + Database integration
 
 ## 🔗 Live Demo
-[Your Render Link]
+https://ai-powered-surveillance-system-abt7.onrender.com
 
 ## 💻 GitHub Repo
-[Already here]
-
-## 📸 Screenshots
-(Add images)
+https://github.com/PadalaSatwikReddy/AI-Powered-Surveillance-System
 
 ## 👥 Team
 Team of 4 members
