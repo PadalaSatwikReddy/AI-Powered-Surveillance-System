@@ -32,9 +32,8 @@ Integrate AI with CCTV cameras to detect threats and improve monitoring.
 
 ## 🛠️ Tech Stack
 
-- Frontend: HTML, CSS, JavaScript  
-- Backend: (Add if used, else remove this line)  
-- Database: (Mention what you used, e.g., Firebase / MongoDB / MySQL)  
+- Frontend: HTML, CSS, JavaScript   
+- Database: Firebase  
 - Tools: Google Antigravity, ChatGPT, Claude, Gemini, Replit
 
 ## 🔗 Live Demo
