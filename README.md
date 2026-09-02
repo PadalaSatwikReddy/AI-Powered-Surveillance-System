@@ -1,4 +1,4 @@
-# AI Surveillance System (Hackathon Project)
+# AI SurveillanceSystem (Hackathon Project)
 
 🚀 Built during GDG Hackathon | Top 10 Project
 
