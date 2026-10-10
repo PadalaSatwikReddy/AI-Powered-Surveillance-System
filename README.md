@@ -1,13 +1,9 @@
 # AI SurveillanceSystem (Hackathon Project)
-
 🚀 Built during GDG Hackathon | Top 10 Project
-
 ## 🚀 Overview
 Built an AI-powered surveillance prototype for hospital security and threat detection.
-
 ## 💡 Idea
 Integrate AI with CCTV cameras to detect threats and improve monitoring.
-
 ## 🛠️ Tech Used
 - Google Antigravity
 - ChatGPT
@@ -15,7 +11,6 @@ Integrate AI with CCTV cameras to detect threats and improve monitoring.
 - Gemini
 - Replit
 - Web + Database integration
-
 ## ⚙️ How It Works
 
 1. User accesses the web application  
@@ -53,7 +48,6 @@ Team of 4 members
 This is a prototype developed during a hackathon
 
 ## 🚀 Future Improvements
-
 - Integration of real-time CCTV video processing  
 - Implementation of actual AI models (e.g., object detection)  
 - Real-time alerts for detected threats  
