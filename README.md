@@ -12,35 +12,26 @@ Integrate AI with CCTV cameras to detect threats and improve monitoring.
 - Replit
 - Web + Database integration
 ## ⚙️ How It Works
-
 1. User accesses the web application  
 2. Data is stored and managed using a database  
 3. AI tools assist in generating and simulating outputs  
 4. The system demonstrates how surveillance insights can be enhanced using AI
-
 ## 👨‍💻 My Contribution
-
 - Developed the web interface for the application  
 - Integrated database functionality with the frontend  
 - Utilized AI tools like ChatGPT, Gemini, Claude, and Antigravity for development  
 - Contributed to idea building and implementation during the hackathon
-
 ## 🛠️ Tech Stack
-
 - Frontend: HTML, CSS, JavaScript   
 - Database: Firebase  
 - Tools: Google Antigravity, ChatGPT, Claude, Gemini, Replit
-
 ## 🔗 Live Demo
 https://ai-powered-surveillance-system-abt7.onrender.com
-
 ## 💻 GitHub Repo
 https://github.com/PadalaSatwikReddy/AI-Powered-Surveillance-System
-
 ## Screenshots
 <img width="3000" height="2121" alt="SQUID_GAME_2_Certificate_PADALA_SAI_VEER_SATWIK_REDDY" src="https://github.com/user-attachments/assets/f62b361d-5c87-436b-9e73-f529d0e0c732" />
 <img width="1919" height="972" alt="image" src="https://github.com/user-attachments/assets/c5bdfbb0-8fb1-4aae-825e-658a1fc69b4f" />
-
 ## 👥 Team:
 Team of 4 members
 
