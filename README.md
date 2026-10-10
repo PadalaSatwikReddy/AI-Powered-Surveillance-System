@@ -34,10 +34,8 @@ https://github.com/PadalaSatwikReddy/AI-Powered-Surveillance-System
 <img width="1919" height="972" alt="image" src="https://github.com/user-attachments/assets/c5bdfbb0-8fb1-4aae-825e-658a1fc69b4f" />
 ## 👥 Team:
 Team of 4 members
-
 ## ⚠️ Note
 This is a prototype developed during a hackathon
-
 ## 🚀 Future Improvements
 - Integration of real-time CCTV video processing  
 - Implementation of actual AI models (e.g., object detection)  
